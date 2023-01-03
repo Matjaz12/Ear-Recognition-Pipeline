@@ -1,0 +1,6 @@
+https://medium.com/backprop-labs/face-recognition-pipeline-clearly-explained-f57fc0082750
+https://www.codemag.com/Article/2205081/Implementing-Face-Recognition-Using-Deep-Learning-and-Support-Vector-Machines
+https://pytorch.org/tutorials/beginner/deeplabv3_on_ios.html
+https://towardsdatascience.com/understanding-u-net-61276b10f360
+https://www.youtube.com/watch?v=oLvmLJkmXuc&ab_channel=AladdinPersson
+https://www.youtube.com/watch?v=IHq1t7NxS8k&t=391s&ab_channel=AladdinPersson
