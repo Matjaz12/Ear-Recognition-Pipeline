@@ -64,7 +64,7 @@ Typical approaches that combine machine learning and LBPs:
 1. extract histograms of LBPs & train a SVM on top of extracted histograms.
 2. use LBP histograms in combination with CNN features.
 
-### Their approach:
+#### Their approach:
 
 Idea: Use dense LBP maps in combinataion with the raw image data as input for a CNN.
 Detail: It turns out that performing numerical operations such as averaging (as done with convolution operation) on top of LBP codes is not a good idea. To solve this we have to map LBP codes into Euclidean space. 
@@ -99,8 +99,40 @@ Uses a two-stream architecture. We train two CNNs:
 
 Once networks are trained, the output probabilites of the sfotmax layers of the two networks are concatenated and 1 linear SVM is trained to classifiy. 
 
+They show that the best accuracy is achived using mid and late fusion.
 
 ## Understanding U-Net [link](https://towardsdatascience.com/understanding-u-net-61276b10f360)
+
+### About
+U-Net is like an encoder-decoder for images, but with skip connections to make sure fine details are not lost. 
+
+### Encoder-Decoder
+
+Our network consists of two parts:
+1. **Encoder** (extracts revalavant features from the image)
+2. **Decoder** (takes the extracted features and reconstructs the segmentation mask)
+
+In the **encoder** part we use conv layers, followed by relu and maxpool as the feature extractors
+(spatial resolution decreases, channel resolution grows). In **decoder** part we use the transposed convolution (increase the spatial resolution and decrease
+the channel resolution). Notice that this network doesn't have a fully connected / linear layers, therefore this network is called a **fully convolutional network (FCN)**.
+
+### Skip connections
+
+First introduced in Residual Networks (ResNets). They provide smoother learning gradients and improvements in classification accuracy. We add skip connections to U-net such that every decoder incorporates the feature map from its corresponding encoder.
+
+**Task of the skip connection**: it reintroduces detailed features (from the encoder) to the decoder, such that decoder can better reconstruct the segmentation map.
+
+
+### Loss functions
+
+The targets are binary masks (pixel value is 1 when pixel contains object). The common loss function used to compare current output with the ground truth is the *categorical cross entroy loss* or (*binary cross entropy in the case of a single label*). In case we are working with imbalanced segmentation masks we can also use the *dice loss* (measures similarity between current predicted segmentation mask and ground truth segmentation mask, similarly to IoU).
+
+
+### Up-sampling methods
+
+1. Bi-Linear Interpolation (predict the output pixel using linear interpolation).
+2. Max-Unpooling.
+3. Deconvolution / Transpose convolution (add padding to each pixel in original image, then apply convolution)
 
 ## U-Net Paper overview [link](https://towardsdatascience.com/understanding-u-net-61276b10f360)
 
