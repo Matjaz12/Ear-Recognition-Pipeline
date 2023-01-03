@@ -1,5 +1,7 @@
 # Material Notes
 
+Quick recap of all the material explored to develop the project.
+
 ## Face Recognition Pipeline Clearly Explained [link](https://medium.com/backprop-labs/face-recognition-pipeline-clearly-explained-f57fc0082750)
 
 ### Face Alignment
