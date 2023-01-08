@@ -1,6 +1,15 @@
 # Ear-Recognition-Pipeline
 
-The project is structured as follows:
+## Project structure
 
-1. [segmentation](./segmentation.ipynb) trains a custom (fine-tuned for the task of ear segmentation) DeepLabV3 segmentation model.
-2. [feature_extraction](./feature_extraction.ipynb) implements a Multiscale Local Binary Patterns (MLBP) feature extractor and ResNet50 (pretrained on ImageNet) feature extractor. The notebook extracts two sets of features and saves as pickle files.
+### [Segmentation](./segmentation.ipynb) 
+
+Notebook trains and evaluates a custom  DeepLabV3 segmentation model, the model is fine-tuned for the task of ear segmentation.
+
+### [Feature extraction](./feature_extraction.ipynb)
+
+Notebook extracts two types of feature vectors. We extract Local Binary Patterns (LBP) and ResNet50 (pretrained on ImageNet) features.
+
+### [Matching](./matching.ipynb)
+
+Notebook implements and evaluates the recognition pipeline.
