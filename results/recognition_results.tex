@@ -1,0 +1,15 @@
+\begin{table}[h]
+    \caption{Table shows the rank 1 and rank 5 accuracy for the recognition part of the pipeline. We vary the mode (i.e the type of feature vector) and distance metric used in the matching stage.}
+    \begin{center}
+        \begin{tabular}{llll}
+            Mode & Distance metric & Rank 1 [\%] & Rank 5 [\%] \\ \hline
+            LBP & euclidean & 15.35 & 26.21 \\ 
+            LBP & cosine & 17.31 & 29.09 \\ 
+            LBP & cityblock & 23.04 & 36.46 \\ 
+            LBP + RESNET50 & euclidean & 16.10 & 27.13 \\ 
+            LBP + RESNET50 & cosine & 16.66 & 27.95 \\ 
+            LBP + RESNET50 & cityblock & 20.62 & 34.46 \\
+        \end{tabular}
+    \label{tab:recognition_performance}
+    \end{center}
+\end{table}
